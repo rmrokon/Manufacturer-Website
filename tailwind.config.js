@@ -1,12 +1,18 @@
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'banner-img': 'url("/src/assets/images/banner-img.png")',
+        'parts-img': 'url("/src/assets/images/parts (1).jpg")',
+        'drill-bg': 'url("/src/assets/images/drill-bg.jpg")',
+      }
+    },
   },
   daisyui: {
     themes: [
       {
-        doctortheme: {
+        smartDrilltheme: {
           primary: "#0FCFEC",
           secondary: "#19D3AE",
           accent: "#3A4256",

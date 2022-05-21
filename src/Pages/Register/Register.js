@@ -108,9 +108,9 @@ const Register = () => {
                             <input className='btn btn-primary text-white font-bold bg-accent w-full mt-2' type="submit" value="Register" disabled={!agree} />
                         </form>
                     </div>
-                    <div class="divider">OR</div>
+                    <div className="divider">OR</div>
                     <p className='text-red-400'>{errorGoogle && errorGoogle.message}</p>
-                    <button onClick={() => signInWithGoogle()} class="btn btn-outline">Continue with google</button>
+                    <button onClick={() => signInWithGoogle()} className="btn btn-outline">Continue with google</button>
                 </div>
             </div>
         </div>
