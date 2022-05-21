@@ -1,15 +1,25 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import auth from '../../firebase.init';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 const NavBar = () => {
+    const [user] = useAuthState(auth);
+
+    const logout = () => {
+        signOut(auth);
+        localStorage.removeItem('accessToken');
+    }
+
     const menuItems = <>
         <li><Link to={'/home'}>Home</Link></li>
         <li><Link to={'/about'}>About</Link></li>
         <li><Link to={'/myOrders'}>My Orders</Link></li>
         <li><Link to={'/reviews'}>Reviews</Link></li>
         <li><Link to={'/profile'}>My Profile</Link></li>
-        <li><Link to={'/login'}>Login</Link></li>
-        <li><Link to={'/register'}>Register</Link></li>
+        <li>{user ? <button onClick={logout}>Logout</button> : <Link to={'/login'}>Login</Link>}</li>
+        <li>{!user && <Link to={'/register'}>Register</Link>}</li>
         <li><Link to={'/contact'}>Contact Us</Link></li>
     </>
 
@@ -24,7 +34,7 @@ const NavBar = () => {
                         {menuItems}
                     </ul>
                 </div>
-                <a href='/home' className="btn bg-accent text-white normal-case text-xl rounded-3xl">Smart Dilling</a>
+                <a href='/home' className="btn bg-accent text-white normal-case text-xl rounded-3xl">Smart Drilling</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
