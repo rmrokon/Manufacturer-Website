@@ -38,8 +38,8 @@ const BusinessSummary = () => {
             </div>
             <div class="card w-full bg-base-100 shadow-xl my-5 items-center">
                 <div class="card-body">
-                    <h2 class="card-title">Still Confused!</h2>
-                    <p>Read some amazing reviews given by our regular clients.</p>
+                    <h2 class="card-title text-3xl text-center">Still Confused!</h2>
+                    <p className='text-xl'>Read some amazing reviews given by our regular clients.</p>
                     <div class="card-actions justify-center">
                         <button class="btn btn-primary text-white">Reviews</button>
                     </div>

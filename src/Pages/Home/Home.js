@@ -4,6 +4,7 @@ import NavBar from '../Shared/NavBar';
 import Banner from './Banner';
 import BusinessSummary from './BusinessSummary';
 import Inventory from './Inventory';
+import Reviews from './Reviews';
 
 const Home = () => {
     return (
@@ -11,6 +12,7 @@ const Home = () => {
             <Banner></Banner>
             <Inventory></Inventory>
             <BusinessSummary></BusinessSummary>
+            <Reviews></Reviews>
             <Footer></Footer>
         </div>
     );
