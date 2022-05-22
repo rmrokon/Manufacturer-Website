@@ -8,6 +8,7 @@ import NavBar from "./Pages/Shared/NavBar";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import OrdersByMail from "./Pages/OrdersByMail/OrdersByMail";
+import Dashboard from "./Pages/Dashboard/Dashboard";
 
 
 function App() {
@@ -17,14 +18,24 @@ function App() {
       <Routes>
         <Route path="/home" element={<Home></Home>}></Route>
         <Route path="/" element={<Home></Home>}></Route>
+
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
+
         <Route path="/purchase/:id" element={<RequireAuth>
           <Purchase></Purchase>
         </RequireAuth>}></Route>
+
         <Route path="/myOrders" element={<RequireAuth>
           <OrdersByMail></OrdersByMail>
         </RequireAuth>}></Route>
+
+        <Route path="/dashboard" element={<RequireAuth>
+          <Dashboard></Dashboard>
+        </RequireAuth>}>
+          <Route index element={<OrdersByMail></OrdersByMail>}></Route>
+
+        </Route>
       </Routes>
       <ToastContainer />
     </div>

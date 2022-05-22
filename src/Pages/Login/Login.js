@@ -37,9 +37,9 @@ const Login = () => {
         return <Loading></Loading>
     }
 
-    if (user || userGoogle) {
-        navigate(from, { replace: true })
-    }
+    // if (user || userGoogle) {
+    //     navigate(from, { replace: true })
+    // }
     const handleLogin = (data) => {
         const { email, password } = data;
 

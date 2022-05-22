@@ -35,13 +35,13 @@ const Purchase = () => {
     return (
         <div>
 
-            <div class="hero min-h-screen bg-base-200">
-                <div class="hero-content flex-col lg:flex-row-reverse">
-                    <div class="text-center lg:text-left">
-                        <div class="card bg-base-100 shadow-xl p-2">
+            <div className="hero min-h-screen bg-base-200">
+                <div className="hero-content flex-col lg:flex-row-reverse">
+                    <div className="text-center lg:text-left">
+                        <div className="card bg-base-100 shadow-xl p-2">
                             <figure><img src={img} alt="Album" /></figure>
-                            <div class="card-body">
-                                <h2 class="card-title">{name}</h2>
+                            <div className="card-body">
+                                <h2 className="card-title">{name}</h2>
                                 <p>{description}</p>
                                 <div>
                                     <p className='font-bold'>Price: ${price}</p>
@@ -53,7 +53,7 @@ const Purchase = () => {
                     </div>
 
                     {/* Form Section */}
-                    <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <OrderForm
                             product={product}
                             orderQuantity={orderQuantity}

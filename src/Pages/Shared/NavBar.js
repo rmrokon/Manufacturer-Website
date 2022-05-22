@@ -15,13 +15,12 @@ const NavBar = () => {
     const menuItems = <>
         <li><Link to={'/home'}>Home</Link></li>
         <li><Link to={'/about'}>About</Link></li>
-        <li><Link to={'/myOrders'}>My Orders</Link></li>
         <li><Link to={'/reviews'}>Reviews</Link></li>
         {!user && <li><Link to={'/register'}>Register</Link></li>}
         <li><Link to={'/contact'}>Contact Us</Link></li>
+        {user && <li><Link to={'/dashboard'}>Dashboard</Link></li>}
         <li>{user ? <button onClick={logout}>Logout</button> : <Link to={'/login'}>Login</Link>}</li>
         {user && <>
-            <li><Link to={'/profile'}>My Profile</Link></li>
             <li>
                 {
                     <>
@@ -42,6 +41,7 @@ const NavBar = () => {
             </li>
         </>
         }
+
 
     </>
 
