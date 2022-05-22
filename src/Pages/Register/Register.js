@@ -27,7 +27,7 @@ const Register = () => {
     }
 
     if (token) {
-        navigate('/inventory');
+        navigate('/home');
     }
 
     const handleRegister = async (data) => {

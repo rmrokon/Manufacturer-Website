@@ -7,7 +7,7 @@ import Register from "./Pages/Register/Register";
 import NavBar from "./Pages/Shared/NavBar";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import MyOrders from "./Pages/MyOrders.js/MyOrders";
+import OrdersByMail from "./Pages/OrdersByMail/OrdersByMail";
 
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
           <Purchase></Purchase>
         </RequireAuth>}></Route>
         <Route path="/myOrders" element={<RequireAuth>
-          <MyOrders></MyOrders>
+          <OrdersByMail></OrdersByMail>
         </RequireAuth>}></Route>
       </Routes>
       <ToastContainer />

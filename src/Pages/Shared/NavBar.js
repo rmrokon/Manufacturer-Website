@@ -17,17 +17,32 @@ const NavBar = () => {
         <li><Link to={'/about'}>About</Link></li>
         <li><Link to={'/myOrders'}>My Orders</Link></li>
         <li><Link to={'/reviews'}>Reviews</Link></li>
-
-        {user &&
-
+        {!user && <li><Link to={'/register'}>Register</Link></li>}
+        <li><Link to={'/contact'}>Contact Us</Link></li>
+        <li>{user ? <button onClick={logout}>Logout</button> : <Link to={'/login'}>Login</Link>}</li>
+        {user && <>
             <li><Link to={'/profile'}>My Profile</Link></li>
+            <li>
+                {
+                    <>
+                        {user?.photoURL ? <div className="avatar">
+                            <div className="w-8 rounded">
+                                {<img src={user?.photoURL} alt="user Avatar" />}
+                            </div>
+                            {user?.displayName}
+                        </div> : <div class="avatar placeholder">
+                            <div class="bg-neutral-focus text-neutral-content rounded-full w-8">
+                                <span class="text-s text-white">{user?.displayName.slice(0, 1)}</span>
+                            </div>
+                            {user?.displayName}
+                        </div>}
+                    </>
 
+                }
+            </li>
+        </>
         }
 
-
-        <li>{user ? <button onClick={logout}>Logout</button> : <Link to={'/login'}>Login</Link>}</li>
-        <li>{!user && <Link to={'/register'}>Register</Link>}</li>
-        <li><Link to={'/contact'}>Contact Us</Link></li>
     </>
 
     return (

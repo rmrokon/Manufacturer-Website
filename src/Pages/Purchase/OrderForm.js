@@ -33,6 +33,19 @@ const OrderForm = ({ product, orderQuantity, setOrderQuantity }) => {
                 const { data } = await axiosPrivate.post(url, order);
                 if (data.insertedId) {
                     toast.success("Order Placed Successfully!");
+                    const { quantity, ...rest } = product;
+                    const newQuantity = parseInt(quantity) - orderQuantity;
+                    const updatedProduct = { newQuantity, ...rest };
+
+                    fetch("http://localhost:5000/updateQuantity", {
+                        method: 'PATCH',
+                        headers: {
+                            "content-type": "application/json",
+                        },
+                        body: JSON.stringify(updatedProduct)
+                    })
+                        .then(res => res.json())
+                        .then(data => console.log(data))
                     navigate("/myOrders")
                 }
             }
