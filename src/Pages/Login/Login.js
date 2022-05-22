@@ -22,19 +22,23 @@ const Login = () => {
     // );
     const navigate = useNavigate();
     const location = useLocation();
-    const [token] = useToken(user || userGoogle);
+    // const [token] = useToken(user || userGoogle);
 
 
     const from = location.state?.from?.pathname || "/";
 
-    useEffect(() => {
-        if (token) {
-            navigate(from, { replace: true });
-        }
-    }, [token, from, navigate])
+    // useEffect(() => {
+    //     if (token) {
+    //         navigate(from, { replace: true });
+    //     }
+    // }, [token, from, navigate])
 
     if (loadingEmailSignIn || loadingGoogle) {
         return <Loading></Loading>
+    }
+
+    if (user || userGoogle) {
+        navigate(from, { replace: true })
     }
     const handleLogin = (data) => {
         const { email, password } = data;

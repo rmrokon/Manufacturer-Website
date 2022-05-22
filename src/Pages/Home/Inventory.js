@@ -4,7 +4,7 @@ import Loading from '../Shared/Loading';
 import SingleProductCard from './SingleProductCard';
 
 const Inventory = () => {
-    const { data: products, isLoading } = useQuery('products', () => fetch("http://localhost:5000/allproducts").then(res => res.json()));
+    const { data: products, isLoading } = useQuery('products', () => fetch("https://smart-drilling.herokuapp.com/allproducts").then(res => res.json()));
     if (isLoading) {
         return <Loading></Loading>
     }
