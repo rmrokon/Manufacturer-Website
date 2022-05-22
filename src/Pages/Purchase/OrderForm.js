@@ -1,12 +1,17 @@
+import { signOut } from 'firebase/auth';
 import React, { useRef } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
+import axiosPrivate from '../../interceptor/axiosPrivate';
 import Loading from '../Shared/Loading';
 
 const OrderForm = ({ product, orderQuantity, setOrderQuantity }) => {
     const [user, loading] = useAuthState(auth);
     const { name, price, quantity, min_order } = product;
     const formRef = useRef();
+    const navigate = useNavigate();
 
     const handlePurchase = (e) => {
 
@@ -22,7 +27,25 @@ const OrderForm = ({ product, orderQuantity, setOrderQuantity }) => {
             bill: e.target.bill.value,
         }
 
-        console.log(order);
+        const placeOrder = async () => {
+            const url = "http://localhost:5000/placeOrder";
+            try {
+                const { data } = await axiosPrivate.post(url, order);
+                if (data.insertedId) {
+                    toast.success("Order Placed Successfully!");
+                    navigate("/myOrders")
+                }
+            }
+            catch (error) {
+                if (error.response.status === 401 || error.response.status === 403) {
+                    signOut(auth);
+                    navigate("/login");
+                }
+            }
+        }
+
+        placeOrder();
+
         formRef.current.reset();
     }
 
