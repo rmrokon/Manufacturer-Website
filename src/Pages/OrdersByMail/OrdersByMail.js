@@ -7,6 +7,7 @@ import useOrders from '../../hooks/useOrders';
 import useProductByOrder from '../../hooks/useProductByOrder';
 import axiosPrivate from '../../interceptor/axiosPrivate';
 import Loading from '../Shared/Loading';
+import CancelOrderModal from './CancelOrderModal';
 import OrderStat from './OrderStat';
 
 const OrdersByMail = () => {
@@ -14,8 +15,9 @@ const OrdersByMail = () => {
     const { email } = user;
     const [orders, setOrders] = useOrders(email);
     const [order, setOrder] = useState({});
-    const navigate = useNavigate();
-    const [product, setProduct] = useProductByOrder(order?.productName)
+    const [product, setProduct] = useProductByOrder(order?.productName);
+    const [orderToBeCanceled, setOrderToBeCanceled] = useState(null);
+
 
     useEffect(() => {
         console.log('this is product', product);
@@ -38,10 +40,6 @@ const OrdersByMail = () => {
                     toast.success("Order canceled successfully");
                     console.log('this is data', data);
                 }
-                else {
-                    // toast("Something went wrong! Please try again!")
-                    console.log("inside effect data", data);
-                }
             })
 
     }, [order, product])
@@ -51,7 +49,7 @@ const OrdersByMail = () => {
     }
 
 
-    const handleCancelOrder = async (id) => {
+    const handleCancelOrder = (id) => {
 
         const order = orders.find(o => o._id === id);
         setOrder(order);
@@ -88,19 +86,25 @@ const OrdersByMail = () => {
                     </thead>
                     <tbody>
                         {
-                            orders?.map((p, index) => <tr key={index}>
+                            orders?.map((o, index) => <tr key={index}>
                                 <th>{index + 1}</th>
-                                <td>{p.productName}</td>
-                                <td className='text-center'>{p.quantity}</td>
-                                <td className='text-center'>{p.bill}</td>
-                                <td>{p.address}</td>
-                                <td><button onClick={() => handleCancelOrder(p._id, p.productName)} class="btn btn-error text-white">Cancel Order</button> <button class="btn btn-success text-white">Make Payment</button></td>
+                                <td>{o.productName}</td>
+                                <td className='text-center'>{o.quantity}</td>
+                                <td className='text-center'>{o.bill}</td>
+                                <td>{o.address}</td>
+                                <td className='text-center'><label htmlFor='my-modal' onClick={() => setOrderToBeCanceled(o)} class="btn btn-error text-white modal-button mr-2">Cancel Order</label>
+
+                                    <button class="btn btn-success text-white">Make Payment</button></td>
                             </tr>)
                         }
 
                     </tbody>
                 </table>
             </div>
+            <CancelOrderModal
+                handleCancelOrder={handleCancelOrder}
+                orderToBeCanceled={orderToBeCanceled}
+            ></CancelOrderModal>
         </div>
     );
 };
