@@ -10,6 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import OrdersByMail from "./Pages/OrdersByMail/OrdersByMail";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import MyProfile from "./Pages/Dashboard/MyProfile";
+import Payment from "./Pages/Payment/Payment";
 
 
 function App() {
@@ -35,10 +36,16 @@ function App() {
           <MyProfile></MyProfile>
         </RequireAuth>}></Route>
 
+
+
         <Route path="/dashboard" element={<RequireAuth>
           <Dashboard></Dashboard>
         </RequireAuth>}>
           <Route index element={<OrdersByMail></OrdersByMail>}></Route>
+
+          <Route path="payment" element={<RequireAuth>
+            <Payment></Payment>
+          </RequireAuth>}></Route>
 
         </Route>
       </Routes>

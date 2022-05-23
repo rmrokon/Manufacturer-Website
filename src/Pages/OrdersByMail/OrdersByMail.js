@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import useOrders from '../../hooks/useOrders';
@@ -8,6 +7,7 @@ import useProductByOrder from '../../hooks/useProductByOrder';
 import axiosPrivate from '../../interceptor/axiosPrivate';
 import Loading from '../Shared/Loading';
 import CancelOrderModal from './CancelOrderModal';
+import OrderDetails from './OrderDetails';
 import OrderStat from './OrderStat';
 
 const OrdersByMail = () => {
@@ -15,8 +15,9 @@ const OrdersByMail = () => {
     const { email } = user;
     const [orders, setOrders] = useOrders(email);
     const [order, setOrder] = useState({});
-    const [product, setProduct] = useProductByOrder(order?.productName);
+    const [product] = useProductByOrder(order?.productName);
     const [orderToBeCanceled, setOrderToBeCanceled] = useState(null);
+    const [paid, setPaid] = useState(false);
 
 
     useEffect(() => {
@@ -86,16 +87,14 @@ const OrdersByMail = () => {
                     </thead>
                     <tbody>
                         {
-                            orders?.map((o, index) => <tr key={index}>
-                                <th>{index + 1}</th>
-                                <td>{o.productName}</td>
-                                <td className='text-center'>{o.quantity}</td>
-                                <td className='text-center'>{o.bill}</td>
-                                <td>{o.address}</td>
-                                <td className='text-center'><label htmlFor='my-modal' onClick={() => setOrderToBeCanceled(o)} class="btn btn-error text-white modal-button mr-2">Cancel Order</label>
-
-                                    <button class="btn btn-success text-white">Make Payment</button></td>
-                            </tr>)
+                            orders?.map((order, index) => <OrderDetails
+                                key={order._id}
+                                order={order}
+                                index={index}
+                                setOrderToBeCanceled={setOrderToBeCanceled}
+                                paid={paid}
+                                setPaid={setPaid}
+                            ></OrderDetails>)
                         }
 
                     </tbody>
