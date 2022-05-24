@@ -16,7 +16,7 @@ const Purchase = () => {
 
 
     useEffect(() => {
-        const url = `http://localhost:5000/product/${id}`;
+        const url = `https://smart-drilling.herokuapp.com/product/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => {

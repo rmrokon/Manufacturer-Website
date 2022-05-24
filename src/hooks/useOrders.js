@@ -4,7 +4,7 @@ const useOrders = (email) => {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        const url = `http://localhost:5000/myOrders/${email}`;
+        const url = `https://smart-drilling.herokuapp.com/myOrders/${email}`;
         fetch(url, {
             method: 'GET',
             headers: {

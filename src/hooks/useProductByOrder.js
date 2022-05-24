@@ -4,7 +4,7 @@ const useProductByOrder = (productName) => {
     const [product, setProduct] = useState({});
 
     useEffect(() => {
-        fetch(`http://localhost:5000/productByName/${productName}`, {
+        fetch(`https://smart-drilling.herokuapp.com/productByName/${productName}`, {
             method: "GET",
             headers: {
                 "content-type": "application/json"

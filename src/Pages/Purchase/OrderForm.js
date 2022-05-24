@@ -28,7 +28,7 @@ const OrderForm = ({ product, orderQuantity, setOrderQuantity }) => {
         }
 
         const placeOrder = async () => {
-            const url = "http://localhost:5000/placeOrder";
+            const url = "https://smart-drilling.herokuapp.com/placeOrder";
             try {
                 const { data } = await axiosPrivate.post(url, order);
                 if (data.insertedId) {
@@ -37,7 +37,7 @@ const OrderForm = ({ product, orderQuantity, setOrderQuantity }) => {
                     const newQuantity = parseInt(quantity) - orderQuantity;
                     const updatedProduct = { newQuantity, ...rest };
 
-                    fetch("http://localhost:5000/updateQuantity", {
+                    fetch("https://smart-drilling.herokuapp.com/updateQuantity", {
                         method: 'PATCH',
                         headers: {
                             "content-type": "application/json",

@@ -11,6 +11,8 @@ import OrdersByMail from "./Pages/OrdersByMail/OrdersByMail";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import MyProfile from "./Pages/Dashboard/MyProfile";
 import Payment from "./Pages/Payment/Payment";
+import AddAReview from "./Pages/Dashboard/AddAReview";
+import Reviews from "./Pages/Reviews/Reviews";
 
 
 function App() {
@@ -23,6 +25,11 @@ function App() {
 
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
+        <Route path="/reviews" element={<Reviews></Reviews>}></Route>
+
+        <Route path="payment/:orderId" element={
+          <Payment></Payment>
+        }></Route>
 
         <Route path="/purchase/:id" element={<RequireAuth>
           <Purchase></Purchase>
@@ -32,20 +39,22 @@ function App() {
           <OrdersByMail></OrdersByMail>
         </RequireAuth>}></Route>
 
-        <Route path="/myProfile" element={<RequireAuth>
-          <MyProfile></MyProfile>
-        </RequireAuth>}></Route>
-
-
-
         <Route path="/dashboard" element={<RequireAuth>
           <Dashboard></Dashboard>
         </RequireAuth>}>
           <Route index element={<OrdersByMail></OrdersByMail>}></Route>
 
-          <Route path="payment" element={<RequireAuth>
-            <Payment></Payment>
+          <Route path="myProfile" element={<RequireAuth>
+            <MyProfile></MyProfile>
           </RequireAuth>}></Route>
+
+          <Route path='addAReview' element={<RequireAuth>
+            <AddAReview></AddAReview>
+          </RequireAuth>}></Route>
+
+          <Route path="myOrders/payment/:orderId" element={
+            <Payment></Payment>
+          }></Route>
 
         </Route>
       </Routes>

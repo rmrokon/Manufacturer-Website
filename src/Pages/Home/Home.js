@@ -5,7 +5,7 @@ import Banner from './Banner';
 import BusinessSummary from './BusinessSummary';
 import FlashSale from './FlashSale';
 import Inventory from './Inventory';
-import Reviews from './Reviews';
+import ReviewsOnHome from './ReviewsOnHome';
 
 const Home = () => {
     return (
@@ -14,7 +14,7 @@ const Home = () => {
             {/* <FlashSale></FlashSale> */}
             <Inventory></Inventory>
             <BusinessSummary></BusinessSummary>
-            <Reviews></Reviews>
+            <ReviewsOnHome></ReviewsOnHome>
             <Footer></Footer>
         </div>
     );

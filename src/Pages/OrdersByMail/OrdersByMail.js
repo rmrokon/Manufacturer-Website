@@ -27,7 +27,7 @@ const OrdersByMail = () => {
         const newQuantity = parseInt(quantity) + parseInt(orderQuantity);
         const updatedProduct = { newQuantity, ...rest };
 
-        fetch("http://localhost:5000/updateQuantity", {
+        fetch("https://smart-drilling.herokuapp.com/updateQuantity", {
             method: 'PATCH',
             headers: {
                 "content-type": "application/json",
@@ -56,7 +56,7 @@ const OrdersByMail = () => {
         setOrder(order);
 
         const remaining = orders.filter(order => id !== order._id);
-        axiosPrivate.delete(`http://localhost:5000/delete/${id}`).then(res => {
+        axiosPrivate.delete(`https://smart-drilling.herokuapp.com/delete/${id}`).then(res => {
             setOrders(remaining);
             console.log(res);
         })
@@ -81,7 +81,7 @@ const OrdersByMail = () => {
                             <th className='text-center'>Quantity</th>
                             <th className='text-center'>Total Amount</th>
                             <th>Shipping Address</th>
-                            <th className='text-center'>Action</th>
+                            <th className='text-center'>Status</th>
                             {/* <th>Payment</th> */}
                         </tr>
                     </thead>
@@ -92,8 +92,6 @@ const OrdersByMail = () => {
                                 order={order}
                                 index={index}
                                 setOrderToBeCanceled={setOrderToBeCanceled}
-                                paid={paid}
-                                setPaid={setPaid}
                             ></OrderDetails>)
                         }
 

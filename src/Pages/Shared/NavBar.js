@@ -21,23 +21,25 @@ const NavBar = () => {
         {user && <li><Link to={'/dashboard'}>Dashboard</Link></li>}
         <li>{user ? <button onClick={logout}>Logout</button> : <Link to={'/login'}>Login</Link>}</li>
         {user && <>
-            <li>
+            <li><Link to={'/dashboard/myProfile'}>
+
                 {
                     <>
                         {user?.photoURL ? <div className="avatar">
                             <div className="w-8 rounded">
-                                {<img src={user?.photoURL} alt="user Avatar" />}
+                                <img src={user?.photoURL} alt="user Avatar" />
                             </div>
                             {user?.displayName}
-                        </div> : <div class="avatar placeholder">
-                            <div class="bg-neutral-focus text-neutral-content rounded-full w-8">
-                                <span class="text-s text-white">{user?.displayName.slice(0, 1)}</span>
+                        </div> : <div class="avatar placeholder flex items-center">
+                            <div class="bg-neutral-focus text-neutral-content rounded-full w-8 mr-2">
+                                <span class="text-s text-white">{user?.displayName?.slice(0, 1)}</span>
                             </div>
-                            {user?.displayName}
+                            <h3>{user?.displayName}</h3>
                         </div>}
                     </>
 
                 }
+            </Link>
             </li>
         </>
         }
