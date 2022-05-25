@@ -17,7 +17,6 @@ const OrdersByMail = () => {
     const [order, setOrder] = useState({});
     const [product] = useProductByOrder(order?.productName);
     const [orderToBeCanceled, setOrderToBeCanceled] = useState(null);
-    const [paid, setPaid] = useState(false);
 
 
     useEffect(() => {
@@ -64,7 +63,7 @@ const OrdersByMail = () => {
     }
 
     return (
-        <div className='p-12'>
+        <div className=''>
             <div className='flex justify-center my-5'>
                 <OrderStat
                     orders={orders}

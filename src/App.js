@@ -15,6 +15,7 @@ import AddAReview from "./Pages/Dashboard/AddAReview";
 import Reviews from "./Pages/Reviews/Reviews";
 import AllUser from "./Pages/Dashboard/AllUser";
 import RequireAdmin from "./Pages/Login/RequireAdmin";
+import AddAProduct from "./Pages/Dashboard/AddAProduct";
 
 
 function App() {
@@ -60,6 +61,10 @@ function App() {
 
           <Route path='allUser' element={<RequireAdmin>
             <AllUser></AllUser>
+          </RequireAdmin>}></Route>
+
+          <Route path='addAProduct' element={<RequireAdmin>
+            <AddAProduct></AddAProduct>
           </RequireAdmin>}></Route>
 
           <Route path="myOrders/payment/:orderId" element={

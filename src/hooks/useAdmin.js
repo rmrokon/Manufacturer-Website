@@ -7,7 +7,7 @@ const useAdmin = (user) => {
 
     useEffect(() => {
         const email = user?.email;
-        const url = `http://localhost:5000/admin/${email}`;
+        const url = `https://smart-drilling.herokuapp.com/admin/${email}`;
         axiosPrivate.get(url).then(res => {
             setAdmin(res?.data?.admin)
             setAdminLoading(false);

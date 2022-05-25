@@ -6,7 +6,7 @@ import UserDetails from './UserDetails';
 
 const AllUser = () => {
     const [usersFromDb, setUsersFromDb] = useState([]);
-    const { isLoading, refetch } = useQuery('allusers', () => fetch("http://localhost:5000/allusers", {
+    const { isLoading, refetch } = useQuery('allusers', () => fetch("https://smart-drilling.herokuapp.com/allusers", {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem("accessToken")}`

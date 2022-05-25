@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const OrderDetails = ({ order, index, setOrderToBeCanceled }) => {
     const { productName, quantity, bill, address, _id, paid, transactionId } = order;
     return (
-        <tr key={index}>
+        <tr key={index} className="">
             <th>{index + 1}</th>
             <td>{productName}</td>
             <td className='text-center'>{quantity}</td>

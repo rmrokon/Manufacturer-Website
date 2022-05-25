@@ -6,7 +6,7 @@ const UserDetails = ({ userFromDb, index, refetch }) => {
     const { role, email } = userFromDb;
 
     const handleMakeAdmin = () => {
-        axiosPrivate.put(`http://localhost:5000/user/admin/${email}`).then(res => {
+        axiosPrivate.put(`https://smart-drilling.herokuapp.com/user/admin/${email}`).then(res => {
             if (res?.data?.modifiedCount === 1) {
                 refetch();
                 toast.success("admin added");
@@ -16,7 +16,7 @@ const UserDetails = ({ userFromDb, index, refetch }) => {
     }
 
     const handleRemoveUser = async () => {
-        const url = `http://localhost:5000/user/delete/${email}`;
+        const url = `https://smart-drilling.herokuapp.com/user/delete/${email}`;
         await axiosPrivate.delete(url).then(res => {
             if (res?.data?.deletedCount === 1) {
                 refetch();
