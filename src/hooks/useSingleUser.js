@@ -7,7 +7,7 @@ const useSingleUser = () => {
     const [userInfoFromDb, setUserInfoFromDb] = useState({});
 
     useEffect(() => {
-        const url = `http://localhost:5000/getUserByEmail/${user?.email}`;
+        const url = `https://smart-drilling.herokuapp.com/getUserByEmail/${user?.email}`;
 
         fetch(url, {
             method: 'GET',

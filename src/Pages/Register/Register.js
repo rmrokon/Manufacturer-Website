@@ -5,6 +5,7 @@ import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfil
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
 import useToken from '../../hooks/useToken';
+import axiosPrivate from '../../interceptor/axiosPrivate';
 
 const Register = () => {
     const [signInWithGoogle, userGoogle, loadingGoogle, errorGoogle] = useSignInWithGoogle(auth);
@@ -39,7 +40,6 @@ const Register = () => {
         }
         await createUserWithEmailAndPassword(email, password);
         await updateProfile({ displayName: name });
-        console.log("updated user")
     }
 
     return (

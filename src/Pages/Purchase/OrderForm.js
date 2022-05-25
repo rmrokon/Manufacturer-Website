@@ -86,8 +86,7 @@ const OrderForm = ({ product, orderQuantity, setOrderQuantity }) => {
                     </label>
                     <input type="number" className="input input-bordered" name='phone' />
                 </div>
-                <div className="form-control">
-
+                <div className="form-control mt-4">
                     <label className="input-group">
                         <span>Price</span>
                         <input type="number" value={price} className="input input-bordered" disabled />
@@ -100,7 +99,7 @@ const OrderForm = ({ product, orderQuantity, setOrderQuantity }) => {
                         <span className="label-text">Enter Quantity</span>
                     </label>
 
-                    <input onBlur={(event) => setOrderQuantity(event.target.value)} type="number" defaultValue={orderQuantity} className="input input-bordered" />
+                    <input onBlur={(event) => setOrderQuantity(event.target.value)} type="number" defaultValue={min_order} className="input input-bordered" />
                     {
                         (orderQuantity < min_order) && <span className='text-red-400'>Minimum Order Quantity is: {min_order}</span>
                     }

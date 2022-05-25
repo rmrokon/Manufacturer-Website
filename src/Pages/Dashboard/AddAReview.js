@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import axiosPrivate from '../../interceptor/axiosPrivate';
 import Loading from '../Shared/Loading';
@@ -22,7 +21,7 @@ const AddAReview = () => {
             review: e.target.review.value
         }
 
-        axiosPrivate.post("http://localhost:5000/addAReview", clientReview).then(res => res.json());
+        axiosPrivate.post("https://smart-drilling.herokuapp.com/addAReview", clientReview).then(res => res.json());
     }
 
 

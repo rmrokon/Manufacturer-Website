@@ -1,10 +1,14 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
 import useSingleUser from '../../hooks/useSingleUser';
 import axiosPrivate from '../../interceptor/axiosPrivate';
+import Loading from '../Shared/Loading';
 
 
 const UpdateProfileModal = ({ id, updating, setUpdating }) => {
+    const [user, loading] = useAuthState(auth);
     const [userInfoFromDb] = useSingleUser();
     const { education, linkedin, city, phone } = userInfoFromDb;
     const navigate = useNavigate();
@@ -13,16 +17,17 @@ const UpdateProfileModal = ({ id, updating, setUpdating }) => {
         e.preventDefault();
         setUpdating(true);
         const userInfo = {
+            name: user?.displayName || null,
             education: e.target.education.value || null,
-            linkedin: e.target.linkedin.value,
-            city: e.target.city.value,
-            phone: e.target.phone.value,
+            linkedin: e.target.linkedin.value || null,
+            city: e.target.city.value || null,
+            phone: e.target.phone.value || null,
         }
 
         console.log(userInfo);
 
 
-        const url = `http://localhost:5000/updateAUser/${id}`;
+        const url = `https://smart-drilling.herokuapp.com/updateAUser/${id}`;
         const { data } = await axiosPrivate.put(url, userInfo).then(res => {
             // res.json()
             if (res?.data?.modifiedCount === 1) {
@@ -32,9 +37,9 @@ const UpdateProfileModal = ({ id, updating, setUpdating }) => {
 
     }
 
-    // if (updating === !null && !updating) {
-    //     navigate('/dashboard/myProfile')
-    // }
+    if (loading) {
+        return <Loading></Loading>
+    }
     return (
         <div className=''>
             <input type="checkbox" id="update-profile-modal" className="modal-toggle" />

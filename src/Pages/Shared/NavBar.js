@@ -3,14 +3,25 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import Loading from './Loading';
 
 const NavBar = () => {
-    const [user] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
 
     const logout = () => {
         signOut(auth);
         localStorage.removeItem('accessToken');
     }
+
+    if (loading) {
+        return <Loading></Loading>
+    }
+
+    // if (user && !user.displayName) {
+    //     return <Loading></Loading>
+    // }
+
+
 
     const menuItems = <>
         <li><Link to={'/home'}>Home</Link></li>
@@ -25,8 +36,8 @@ const NavBar = () => {
 
                 {
                     <>
-                        {user?.photoURL ? <div className="avatar">
-                            <div className="w-8 rounded">
+                        {user?.photoURL ? <div className="avatar flex items-center">
+                            <div className="w-8 rounded mr-2">
                                 <img src={user?.photoURL} alt="user Avatar" />
                             </div>
                             {user?.displayName}
@@ -43,9 +54,8 @@ const NavBar = () => {
             </li>
         </>
         }
-
-
     </>
+
 
     return (
         <div className="navbar bg-base-100">
@@ -65,11 +75,13 @@ const NavBar = () => {
                     {menuItems}
                 </ul>
             </div>
-            <div className="navbar-end">
-                <label tabIndex="1" htmlFor="dboard-sidebar" className="btn btn-ghost lg:hidden">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-                </label>
-            </div>
+            {
+                user && <div className="navbar-end">
+                    <label tabIndex="1" htmlFor="dboard-sidebar" className="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                    </label>
+                </div>
+            }
         </div>
     );
 };

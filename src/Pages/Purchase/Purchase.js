@@ -33,9 +33,9 @@ const Purchase = () => {
         return <Loading></Loading>
     }
     return (
-        <div>
-
-            <div className="hero min-h-screen bg-base-200">
+        <div className='max-h-screen'>
+            <h3 className='font-bold text-3xl text-center my-12'>Place an order for: {name}</h3>
+            <div className="hero">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
                         <div className="card bg-base-100 shadow-xl p-2">
