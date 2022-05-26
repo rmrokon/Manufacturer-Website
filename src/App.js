@@ -16,6 +16,7 @@ import Reviews from "./Pages/Reviews/Reviews";
 import AllUser from "./Pages/Dashboard/AllUser";
 import RequireAdmin from "./Pages/Login/RequireAdmin";
 import AddAProduct from "./Pages/Dashboard/AddAProduct";
+import NotFound from "./Pages/Shared/NotFound";
 
 
 function App() {
@@ -72,6 +73,8 @@ function App() {
           }></Route>
 
         </Route>
+
+        <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <ToastContainer />
     </div>

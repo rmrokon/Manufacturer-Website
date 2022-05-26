@@ -7,6 +7,7 @@ module.exports = {
         'card-bg': 'url("/src/assets/images/card-bg.png")',
         'parts-img': 'url("/src/assets/images/parts (1).jpg")',
         'drill-bg': 'url("/src/assets/images/drill-bg.jpg")',
+        'no-found-bg': 'url("/src/assets/images/drill-bg.jpg")',
       }
     },
   },
