@@ -27,6 +27,7 @@ const NavBar = () => {
         <li><Link to={'/home'}>Home</Link></li>
         <li><Link to={'/about'}>About</Link></li>
         <li><Link to={'/reviews'}>Reviews</Link></li>
+        <li><Link to={'/blogs'}>Blogs</Link></li>
         {!user && <li><Link to={'/register'}>Register</Link></li>}
         <li><Link to={'/contact'}>Contact Us</Link></li>
         {user && <li><Link to={'/dashboard'}>Dashboard</Link></li>}

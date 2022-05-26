@@ -17,6 +17,7 @@ import AllUser from "./Pages/Dashboard/AllUser";
 import RequireAdmin from "./Pages/Login/RequireAdmin";
 import AddAProduct from "./Pages/Dashboard/AddAProduct";
 import NotFound from "./Pages/Shared/NotFound";
+import Blogs from "./Pages/Blogs/Blogs";
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
         <Route path="/reviews" element={<Reviews></Reviews>}></Route>
+        <Route path="/blogs" element={<Blogs></Blogs>}></Route>
 
         <Route path="payment/:orderId" element={
           <Payment></Payment>

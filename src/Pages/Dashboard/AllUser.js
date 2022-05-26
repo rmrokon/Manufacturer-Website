@@ -13,14 +13,12 @@ const AllUser = () => {
         }
     }).then(res => res.json()).then(data => {
         setUsersFromDb(data);
-        console.log(data)
     }))
 
     if (isLoading) {
         return <Loading></Loading>
     }
 
-    console.log(usersFromDb);
 
     return (
         <div className='max-h-screen'>
