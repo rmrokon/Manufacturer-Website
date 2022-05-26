@@ -13,7 +13,7 @@ const Inventory = () => {
             <h3 className='text-primary text-center text-3xl font-bold'>Tools</h3>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 px-8'>
                 {
-                    products.map(p => <SingleProductCard key={p._id} product={p}></SingleProductCard>)
+                    products.slice(0, 6).map(p => <SingleProductCard key={p._id} product={p}></SingleProductCard>)
                 }
             </div>
         </div>

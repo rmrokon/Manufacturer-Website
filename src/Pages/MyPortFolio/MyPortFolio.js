@@ -1,4 +1,4 @@
-import { ArrowRightIcon, ChartSquareBarIcon, DocumentTextIcon, DotsCircleHorizontalIcon, LinkIcon } from '@heroicons/react/solid';
+import { ArrowRightIcon, DocumentTextIcon, LinkIcon } from '@heroicons/react/solid';
 import React from 'react';
 import rokon from '../../assets/images/Rokon.png';
 
@@ -38,20 +38,20 @@ const MyPortFolio = () => {
                         <div className='border rounded-lg p-2 my-2 bg-white'>
                             <h3 className='flex items-center'><DocumentTextIcon className='w-5 h-5'></DocumentTextIcon><p>iManage24 - Warehouse Management Website</p></h3>
 
-                            <h3 className='flex items-center mt-2 text-blue-600'><LinkIcon className='w-5 h-5'></LinkIcon><p><a href="https://imanage24-9aeab.web.app">Visit live site</a></p></h3>
+                            <h3 className='flex items-center mt-2 text-blue-600'><LinkIcon className='w-5 h-5 mr-2'></LinkIcon><p><a href="https://imanage24-9aeab.web.app">Visit live site</a></p></h3>
                         </div>
 
                         <div className='border rounded-lg p-2 my-2 bg-white'>
                             <h3 className='flex items-center'><DocumentTextIcon className='w-5 h-5'></DocumentTextIcon><p>Oral Care- Website for a Dentisit</p></h3>
 
-                            <h3 className='flex items-center mt-2 text-blue-600'><LinkIcon className='w-5 h-5'></LinkIcon><p><a href="https://oral-care-55971.web.app/">Visit live site</a></p></h3>
+                            <h3 className='flex items-center mt-2 text-blue-600'><LinkIcon className='w-5 h-5 mr-2'></LinkIcon><p><a href="https://oral-care-55971.web.app/">Visit live site</a></p></h3>
 
                         </div>
 
                         <div className='border rounded-lg p-2 my-2 bg-white'>
                             <h3 className='flex items-center'><DocumentTextIcon className='w-5 h-5'></DocumentTextIcon><p>Gaming Gadget- Product Analysis Website</p></h3>
 
-                            <h3 className='flex items-center mt-2 text-blue-600'><LinkIcon className='w-5 h-5'></LinkIcon><p><a href="https://gaming-gadget-review.netlify.app/">Visit live site</a></p></h3>
+                            <h3 className='flex items-center mt-2 text-blue-600'><LinkIcon className='w-5 h-5 mr-2'></LinkIcon><p><a href="https://gaming-gadget-review.netlify.app/">Visit live site</a></p></h3>
                         </div>
                     </div>
 
