@@ -1,6 +1,7 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import Loading from '../Shared/Loading';
 
 
@@ -52,7 +53,7 @@ const CheckoutForm = ({ order }) => {
 
         if (error) {
             setCardError(error.message)
-            console.log('[error]', error);
+
         } else {
             setCardError('');
             setProcessing(true);
@@ -98,8 +99,9 @@ const CheckoutForm = ({ order }) => {
                 body: JSON.stringify(payment)
             }).then(res => res.json()).then(data => {
                 setProcessing(true);
-                console.log(data)
-                navigate('/myorders')
+
+                toast.success("Your payment has been taken successfully!")
+                navigate('/dashboard')
             })
         }
     }

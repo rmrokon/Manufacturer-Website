@@ -13,16 +13,16 @@ const OrderDetails = ({ order, index, setOrderToBeCanceled }) => {
             <td className='text-center'>{
 
                 paid ? <div className=''>
-                    <p className='bg-green-400 text-xl text-white w-1/4 mx-auto rounded-lg'>Paid</p>
-                    <p className='bg-gray-200 text-sm text-accent px-2 py-1 rounded-sm mt-2'>Transaction Id: <br /> {transactionId}</p>
+                    <p className='bg-green-400 text-sm text-white w-1/4 mx-auto rounded-lg'>Paid</p>
+                    <small className='text-sm text-accent px-2 py-1 rounded-sm mt-2'>Transaction Id: <br /> {transactionId}</small>
                 </div>
 
                     :
 
                     <>
-                        <label htmlFor='my-modal' onClick={() => setOrderToBeCanceled(order)} class="btn btn-error text-white modal-button mr-2">Cancel Order</label>
+                        <label htmlFor='my-modal' onClick={() => setOrderToBeCanceled(order)} class="btn btn-sm btn-error text-white modal-button mr-2">Cancel Order</label>
 
-                        <Link to={`/payment/${_id}`}><button class="btn btn-success text-white">Make Payment</button></Link>
+                        <Link to={`/dashboard/payment/${_id}`}><button class="btn btn-sm btn-success text-white">Make Payment</button></Link>
                     </>}</td>
         </tr>
     );

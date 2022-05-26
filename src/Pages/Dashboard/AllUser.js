@@ -21,9 +21,9 @@ const AllUser = () => {
 
 
     return (
-        <div className='max-h-screen'>
+        <div className='w-full p-5'>
             <h3 className='text-accent text-3xl font-bold text-center my-12'>All Users</h3>
-            <div className="overflow-x-auto">
+            <div className="max-w-screen overflow-x-auto">
                 <table className="table">
                     <thead>
                         <tr>

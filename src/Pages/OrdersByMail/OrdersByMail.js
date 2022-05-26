@@ -20,7 +20,6 @@ const OrdersByMail = () => {
 
 
     useEffect(() => {
-        console.log('this is product', product);
         const { quantity: orderQuantity } = order;
         const { quantity, ...rest } = product;
         const newQuantity = parseInt(quantity) + parseInt(orderQuantity);
@@ -38,7 +37,6 @@ const OrdersByMail = () => {
 
                 if (data.modifiedCount === 1) {
                     toast.success("Order canceled successfully");
-                    console.log('this is data', data);
                 }
             })
 
@@ -63,14 +61,14 @@ const OrdersByMail = () => {
     }
 
     return (
-        <div className=''>
+        <div className='min-h-screen w-full p-5'>
             <div className='flex justify-center my-5'>
                 <OrderStat
                     orders={orders}
                 ></OrderStat>
             </div>
 
-            <div className="overflow-x-auto">
+            <div className="max-w-screen overflow-x-auto">
                 <table className="table w-full">
                     <thead>
                         <tr>

@@ -46,7 +46,7 @@ const OrderForm = ({ product, orderQuantity, setOrderQuantity }) => {
                     })
                         .then(res => res.json())
                         .then(data => console.log(data))
-                    navigate("/myOrders")
+                    navigate("/dashboard/myOrders")
                 }
             }
             catch (error) {
@@ -112,7 +112,7 @@ const OrderForm = ({ product, orderQuantity, setOrderQuantity }) => {
                     <label className="label">
                         <span className="label-text">Total Cost (USD)</span>
                     </label>
-                    <input type="number" className="input input-bordered" name='bill' value={((orderQuantity >= min_order) && (orderQuantity < quantity) && (orderQuantity * price))} disabled />
+                    <input type="number" className="input input-bordered" name='bill' value={(orderQuantity ? (orderQuantity * price) : (min_order * price))} disabled />
                 </div>
 
                 <div className="form-control">

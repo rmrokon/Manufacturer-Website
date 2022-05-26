@@ -35,22 +35,15 @@ function App() {
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route path="/portfolio" element={<MyPortFolio></MyPortFolio>}></Route>
 
-        <Route path="payment/:orderId" element={
-          <Payment></Payment>
-        }></Route>
-
-
+        <Route path="/purchase/:id" element={<RequireAuth>
+          <Purchase></Purchase>
+        </RequireAuth>}></Route>
 
 
         <Route path="/dashboard" element={<RequireAuth>
           <Dashboard></Dashboard>
         </RequireAuth>}>
           <Route index element={<OrdersByMail></OrdersByMail>}></Route>
-
-          <Route path="purchase/:id" element={<RequireAuth>
-            <Purchase></Purchase>
-          </RequireAuth>}></Route>
-
 
           <Route path="myOrders" element={<RequireAuth>
             <OrdersByMail></OrdersByMail>
@@ -71,6 +64,10 @@ function App() {
           <Route path='addAProduct' element={<RequireAdmin>
             <AddAProduct></AddAProduct>
           </RequireAdmin>}></Route>
+
+          <Route path="payment/:orderId" element={
+            <Payment></Payment>
+          }></Route>
 
           <Route path="myOrders/payment/:orderId" element={
             <Payment></Payment>

@@ -23,7 +23,7 @@ const Register = () => {
     const navigate = useNavigate();
     const [token] = useToken(user || userGoogle);
 
-    if (loading || loadingGoogle) {
+    if (loading || loadingGoogle || updating) {
         return <Loading></Loading>;
     }
 

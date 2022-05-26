@@ -6,6 +6,8 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import Loading from '../Shared/Loading';
 import { useForm } from "react-hook-form";
 import useToken from '../../hooks/useToken.js';
+import UpdateProfileModal from '../Dashboard/UpdateProfileModal';
+import ResetPasswordModal from './ResetPasswordModal';
 
 
 const Login = () => {
@@ -46,6 +48,10 @@ const Login = () => {
         signInWithEmailAndPassword(email, password);
     }
 
+    const handlePasswordReset = () => {
+
+    }
+
     return (
         <div className='flex justify-center items-center h-[80vh]'>
             <div className="card w-96 bg-base-100 shadow-xl">
@@ -73,7 +79,8 @@ const Login = () => {
 
                             {errors.password?.type === "required" && <p className='text-red-400'>{errors.password.message}</p>}
 
-                            <p className='text-accent text-left'>Forgot Password?</p>
+                            {/* <p onClick={handlePasswordReset} className='text-accent text-left'>Forgot Password?</p> */}
+                            <label for="my-modal" class="modal-button text-blue-500">Forgot Password?</label>
 
 
 
@@ -85,10 +92,9 @@ const Login = () => {
                     <div className="divider">OR</div>
                     <p className='text-red-400'>{errorGoogle && errorGoogle.message}</p>
                     <button onClick={() => signInWithGoogle()} className="btn btn-outline">Continue with google</button>
-
-
                 </div>
             </div>
+            <ResetPasswordModal></ResetPasswordModal>
         </div>
     );
 };

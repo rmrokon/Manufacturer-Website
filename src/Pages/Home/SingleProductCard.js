@@ -15,7 +15,7 @@ const SingleProductCard = ({ product }) => {
                     <p>Minimum Order: {min_order} units</p>
                 </div>
                 <div className="card-actions justify-end">
-                    <Link to={`/dashboard/purchase/${_id}`}><button className="btn btn-primary text-white">Buy Now</button></Link>
+                    <Link to={`/purchase/${_id}`}><button className="btn btn-primary text-white">Buy Now</button></Link>
                 </div>
             </div>
         </div>
