@@ -6,7 +6,7 @@ import image4 from '../../assets/images/4.png'
 
 const Carousel = () => {
     return (
-        <div>
+        <div className='my-24'>
             <div class="carousel w-full">
                 <div id="item1" class="carousel-item w-full">
                     <img src={image1} class="w-full" alt='' />

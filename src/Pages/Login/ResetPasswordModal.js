@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
 
@@ -9,9 +10,10 @@ const ResetPasswordModal = () => {
     const handlePasswordReset = async () => {
         if (email) {
             await sendPasswordResetEmail(email);
+            toast.success("Password reset email sent");
         }
         else {
-            alert("Please put your email first")
+            toast.error("Please put your email first");
         }
     }
 
