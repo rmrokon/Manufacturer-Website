@@ -57,7 +57,6 @@ const OrdersByMail = () => {
             setOrders(remaining);
             console.log(res);
         })
-
     }
 
     return (

@@ -30,7 +30,7 @@ const AddAProduct = () => {
                         img
                     }
 
-                    axiosPrivate.post("http://localhost:5000/addProduct", product).then(res => console.log(res));
+                    axiosPrivate.post("https://smart-drilling.herokuapp.com/addProduct", product).then(res => console.log(res));
                 }
             })
 
