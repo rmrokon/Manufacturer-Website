@@ -1,14 +1,17 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import auth from '../../firebase.init';
 
 const Footer = () => {
+    const [user] = useAuthState(auth);
     return (
         <section className='bg-footer-bg bg-center bg-no-repeat'>
             <footer className="footer p-10 text-accent justify-items-center">
                 <div>
                     <span className="footer-title">Useful Links</span>
                     <ul>
-                        <li><Link to={'/blog'}>Inventory</Link></li>
+                        <li><Link to={'/home'}>Home</Link></li>
                         <li><Link to={'/reviews'}>Reviews</Link></li>
                         <li><Link to={'/contact'}>Contact Us</Link></li>
                         <li><Link to={'/login'}>Login</Link></li>
@@ -26,10 +29,10 @@ const Footer = () => {
                 <div>
                     <span className="footer-title">Others</span>
                     <ul>
-                        <li><Link to={'/blog'}>Blog</Link></li>
+                        <li><Link to={'/blogs'}>Blogs</Link></li>
                         <li><Link to={'/reviews'}>Reviews</Link></li>
-                        <li><Link to={'/contact'}>Contact Us</Link></li>
-                        <li><Link to={'/login'}>Login</Link></li>
+                        <li><Link to={'/portfolio'}>My Portfolio</Link></li>
+                        {user && <li><Link to={'/login'}>Login</Link></li>}
                     </ul>
                 </div>
             </footer>

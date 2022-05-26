@@ -15,7 +15,7 @@ module.exports = {
     themes: [
       {
         smartDrilltheme: {
-          primary: "#0FCFEC",
+          primary: "#3A4256",
           secondary: "#19D3AE",
           accent: "#3A4256",
           neutral: "#3d4451",

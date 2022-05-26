@@ -6,11 +6,11 @@ import auth from '../../firebase.init';
 import useAdmin from '../../hooks/useAdmin';
 import axiosPrivate from '../../interceptor/axiosPrivate';
 
-const OrderDetails = ({ order, index, setOrderToBeCanceled }) => {
+const OrderDetails = ({ order, index, setOrderToBeCanceled, refetch }) => {
     const [user] = useAuthState(auth);
     const [admin] = useAdmin(user);
 
-    const { productName, quantity, bill, address, _id, paid, transactionId, shipped, refetch } = order;
+    const { productName, quantity, bill, address, _id, paid, transactionId, shipped } = order;
 
     const handleShipped = () => {
         axiosPrivate.put(`https://smart-drilling.herokuapp.com/order/shipped/${_id}`).then(res => {
@@ -20,6 +20,8 @@ const OrderDetails = ({ order, index, setOrderToBeCanceled }) => {
             }
         })
     }
+
+
     return (
         <tr key={index} className="">
             <th>{index + 1}</th>
