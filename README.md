@@ -1,6 +1,6 @@
 # Smart Drilling
 
-[Live Site Link](https://smart-drilling.web.app).
+## [Live Site Link](https://smart-drilling.web.app).
 
 ## Features
 
